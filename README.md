@@ -1,0 +1,2 @@
+# MidasSpider
+My Scrapy Spider
