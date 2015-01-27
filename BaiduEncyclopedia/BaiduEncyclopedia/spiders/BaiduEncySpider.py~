@@ -1,0 +1,21 @@
+import scrapy
+import re
+from BaiduEncyclopedia.items import BadiEncyItem
+
+class BaiduEncySpider(scrapy.Spider):
+    name = 'baiduEncy'
+    allowed_domains = ['http://baike.baidu.com']
+    start_urls = [
+        '',
+    ]
+
+    def parse(self, response):
+        id = url.split('\\')[-1]
+        name = response.xpath('//span[@class="lemmaTitleH1"]/text()').extract()
+        summary = response.xpath('//div[@class="card-summary-content"]').extract()
+        summaryText = re.compile('<[^>]*>').sub('', summary[0]))
+        rawAttrs = response.xpath('//div[@class="biItemInner"]').extract()
+        attr = {}
+        for rAttr in rawAttrs:
+            
+        
